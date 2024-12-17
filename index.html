@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Sustainable Beauty</title>
+    <link rel="stylesheet" href="myStyle.css">
+    <link rel="shortcut icon" href="myFav.png" type="image/x-icon"> 
+        <!-- 이 코드는 페이지 아이콘을 만드는 것임 -->
+    <script src="js.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    
+</head>
+
+<body>
+  <div class="page-container">
+    <header class="navbar">
+      <div class="logo">Sustainable Beauty</div>
+
+      <nav class="nav-links">
+        <a href="#A">Home</a>
+        <a href="#B">Problem</a>
+        <a href="#C">Reason</a>
+        <a href="#F">Solution</a>
+      </nav>
+
+      <button class="hamburger" aria-label="Toggle navigation">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </button>   <!--버튼 생김새 만든 거임 --> 
+
+    </header>
+  </div>
+
+  <!-- ------------------------------------------------------- -->
+
+  <nav class="Quick-navigation">
+    <a href="#A" class="Quick-navigation-item">●</a>
+    <a href="#B" class="Quick-navigation-item">●</a>
+    <a href="#C" class="Quick-navigation-item">●</a>
+    <a href="#D" class="Quick-navigation-item">●</a>
+    <a href="#E" class="Quick-navigation-item">●</a>
+    <a href="#F" class="Quick-navigation-item">●</a>
+    <a href="#G" class="Quick-navigation-item">●</a>
+    <a href="#H" class="Quick-navigation-item">●</a>
+    <div class="Scroll-progress-indicator"></div>
+  </nav>
+
+
+
+  <section id="A"> 
+    <div class="container">
+        <img src="img/Group.png" alt="Background" class="background">
+        <img src="img/fly01.png" alt="Sticker 1" class="sticker" id="sticker1">
+        <img src="img/fly02.png" alt="Sticker 2" class="sticker" id="sticker2">
+        <div class="centered-text">
+          <h1> 시작하려면 쓰레기를 정리하세요!</h1>
+        </div>    
+        <img src="img/start.png" alt="Start Button" id="startButton">
+        <img class="background-image00" src="img/bg04.jpg" alt="Background">
+    </div> 
+  </section>
+
+
+  <section id="B" style="position: relative; background-color: black;">
+    <img src="img/bg01.jpg" alt="Sample" class="color-dodge-image">
+    <img src="img/text01.png" alt="Sample" class="static-image">
+  </section>
+
+
+  <section id="C" style="position: relative; background-color: black;">
+    <img src="img/bg01.jpg" alt="Sample" class="color-dodge-image">
+
+    <div class="text-container">
+        <h1>'팝업의 성지'서울시 성동구 <br> 늘어나는 산업폐기물</h1>
+        <h2>서울시 성수동, 최근 팝업스토어 성지로 부상하며<br>
+            한 달 평균 90여개의 팝업스토어를 운영하고 있다.
+            <br><br>
+            팝업이란 ‘튀어나오다, 불쑥 나타나다’ 라는 뜻으로 팝업스토어는 이름처럼<br>
+            불쑥 나타나 단기간만 운영하고 사라지는 매장이다.
+            <br><br>
+            이러한 팝업스토어의 잦은 설치와 철거로 인한 폐기물 연간 약 500톤!
+            <br><br>
+            특히, 저렴한 합판 등으로 제작된 인테리어는 철거 시<br>
+            파손되면 재활용이 불가능하다.</h2>
+    </div>
+    <img src="img/tape2.png" alt="Sample" class="static-image02">
+    <img src="img/trash.png" alt="Sample" class="static-image03">
+  </section>
+
+
+  <!-- ------------------------------------------------------- -->
+
+
+  <section id="D">
+    <img class="background-image" src="img/bg02.jpg" alt="Background">
+    <div class="text-container1">
+      <h1>성동구 사업장 <br> 일반폐기물 배출량</h1>
+    </div>
+    <div class="text-container2">
+      <!-- 돋보기 대상 이미지 -->
+      <div class="graph-container">
+        <img src="img/Graph.png" alt="Graph Image" class="graph-image">
+        <div class="magnifier"></div>
+      </div>
+      <h2>
+        건설 현장에서 나오는 폐기물 가운데 5톤 이상은 건설폐기물로,<br>
+        그 미만은 생활폐기물로 분류된다.
+        <br><br>
+        전자는 '올바로 시스템' 아래 관리가 되지만, 후자는 관련 규정이 미비하다.<br>
+        <br> 보통 팝업스토어 하나가 철거될 때 3톤 내외의 폐기물이 발생하기 때문에<br>
+        대부분의 폐기물이 관리 사각지대에 속한다.<br>
+      </h2>
+    </div>
+    <div class="image-container1">
+      <img src="img/truck.png" alt="Sample" class="static-image04">
+    </div>
+</section>
+
+
+  <section id="E">
+      <img class="background-image" src="img/bg02.jpg" alt="Background">
+      <div class="text-container3">
+        <h1>4년만에 폐기물량 <br> 무려 10배 증가</h1>
+        <h2>성동구청은 자체적 규정을 마련했지만<br>
+          강제성 부족으로 효과적인 관리에 어려움을 겪고 있다.<br>
+          <br>
+          기업의 자발성에만 의존해야 하는 현재의 관리 방식에<br>
+          큰 한계가 있다고 전문가들은 지적한다.
+          <br>
+        </h2>
+      </div>
+      <!-- 오른쪽 이미지 영역 -->
+      <div class="image-container2">
+        <img src="img/car.png" alt="Sample" class="static-image05">
+        <img src="img/Group02.png" alt="Sample" class="static-image06">
+      </div>
+</section>
+
+
+  <section id="F">
+      <img src="img/text02.png" alt="Sample Image" class="static-image07">
+      <img class="background-image2" src="img/bg03.jpg" alt="Background">
+      <div class="dropdown-container">
+
+        <div class="dropdown">
+          <div class="dropdown-header">
+            1. 폐기물의 배출 및 처리
+            <div class="dropdown-number">정부</div>
+          </div>
+          <div class="dropdown-content">
+            <br>
+            「폐기물관리법」은 생활폐기물의 처리를 기본적으로 기초자치단체의 책임으로 하면서도 폐기물의 광역적 처리를 위한 규정을 두고 있어, 환경부장관, 시도지사 또는 시장 군수 구청장은 2곳 이상의 시도 또는 시군구에서 발생되는 폐기물을 광역적으로 처리할 필요가 있다고 인정되는 경우에는 광역폐기물처리시설을 단독 또는 공동으로 설치 운영할 수 있다.
+            사업장폐기물의 처리책임은 배출사업자에게 있다. 폐기물배출사업자는 스스로 폐기물을 처리하거나 이를 위탁 처리할 수 있다. 2곳 이상의 사업장폐기물배출자는 각각의 사업장에서 발생되는 폐기물을 환경부령이 정하는 바에 따라 공동으로 수집 운반 또는 처리할 수 있으며, 이를 위한 폐기물처리시설을 공동으로 설치 운영할 수 있다.
+             (출처: 행정안전부 국가기록원)
+            <br><br>
+          </div>
+
+        <div class="dropdown">
+          <div class="dropdown-header">
+            2. 폐기물의 불법처리 또는 방치에 대한 규제
+            <div class="dropdown-number">지자체</div>
+          </div>
+          <div class="dropdown-content">
+            <br>
+            환경부령이 정하는 사업장폐기물배출자는 사업장폐기물의 종류, 발생량 등을 환경부령이 정하는 바에 따라 시장 군수 구청장에게 신고하도록 하여 일반사업장폐기물에 대한 신고제도를 확립하고 있으며, 지정폐기물의 처리증명제를 통하여, 배출자, 운반자, 처리자가 배출로부터 처리 및 정산의 단계별로 적법처리를 입증하도록 의무화하였다. 지정폐기물의 처리증명제는 지정폐기물의 불법투기와 불법처리를 예방하기 위하여 지정폐기물의 배출단계부터 최종처리단계까지를 총괄하는 지정폐기물의 처리경로 및 적법처리 여부를 추적·감시하는 제도로서, 지정폐기물의 처리경로뿐만 아니라 적법처리 여부도 추적 감시한다는 점에서 종래의 폐기물추적제도보다 강화된 제도로 볼 수 있다.
+            (출처: 행정안전부 국가기록원)
+            <br><br>
+          </div>
+        
+        <div class="dropdown">
+          <div class="dropdown-header">
+            3. 자원 순환 정책 대전환
+            <div class="dropdown-number">기업</div>
+          </div>
+          <div class="dropdown-content">
+            <br>
+            정부는 폐기물 관리의 근본적 개선을 위해 '자원순환 정책 대전환' 계획을 수립했다. 폐기물 감량, 재활용 강화, 공공관리 체계 구축, 처리시설 개선 등을 주목할 점으로 꼽을 수 있다. 생산 및 유통 단계에서 발생하는 불필요한 폐기물을 예방하고 경제 섲앙, 폐기물 증가의 탈동조화를 추구한다. 특히 택배 포장재 등 유통포장재의 감축 정책이 중점적으로 논의되었다.
+            <br><br>
+          </div>
+      </div>
+  </section>
+   
+
+
+  <section id="G">
+    <img class="background-image2" src="img/bg03.jpg" alt="Background">
+    <div class="interactive-point" 
+         id="point1" 
+         data-title="건축물 용도" 
+         data-description="· 필요시 팝업 목적에 맞는 건축물 용도변경 허가(신고)&#10;· 건축물 부요 구조부 해체•신설 시 구에 허가(신고)&#10;· 부설 주차장에 부스 및 가판 설치 금지 ">
+    </div>
+
+    <div class="interactive-point" 
+         id="point2" 
+         data-title="폐기물 관리" 
+         data-description="· 철거시 발생하는 폐기물 혼합 배출 지양&#10;· 재활용 가능 자재 선별하여 소각•매립 폐기물 양 줄일 것&#10;· 폐기물 양에 따라 반드시 배출자•배출량 배출 신고를 할 것">
+    </div>
+
+    <div class="interactive-point" 
+         id="point3" 
+         data-title="생활쓰레기" 
+         data-description="· 카테고리 별로 지정된 분리수거함을 사용&#10;· 메뉴얼에 지정된 배출 시간을 준수 (야간 시간 배출시 벌금 대상)&#10;· 음식물 쓰레기는 수분을 제거 후 전용 쓰레기 봉투에 배출">
+    </div>
+
+    <img src="img/docs.png" alt="Static Image" class="static-image08">
+
+    <div class="description-box hidden">
+      <div class="description-title-bar">
+        <h2 class="description-title"></h2>
+    </div>
+    <div class="description-content">
+        <p></p>
+    </div>
+    </div>
+
+    <h1>지자체의 노력</h1>
+
+  </section>
+
+
+  
+  <section id="H">
+    <div class="score-box">Score: <span id="score">0</span></div>
+    <img class="static-image09" src="img/ccc.png" alt="Interactive Image">
+    <h1>디자인은 끝이 아니라 <br> 새로운 순환의 시작이며, <br>
+      아름다움은 지속 가능성과 <br> 책임에서 나옵니다.</h1>
+  </section>
+  
+
+
+
+</body>
+</html>

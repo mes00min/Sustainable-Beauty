@@ -1,0 +1,1550 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Hahmlet:wght@100..900&family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+
+@font-face {
+  font-family: 'ClimateCrisisKR';
+  src: url('./fonts/ClimateCrisisKR-1979.woff2') format('woff2');
+  font-weight: 100; /* Weight 설정 */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ClimateCrisisKR';
+  src: url('./fonts/ClimateCrisisKR-1990.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ClimateCrisisKR';
+  src: url('./fonts/ClimateCrisisKR-2000.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ClimateCrisisKR';
+  src: url('./fonts/ClimateCrisisKR-2010.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ClimateCrisisKR';
+  src: url('./fonts/ClimateCrisisKR-2019.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ClimateCrisisKR';
+  src: url('./fonts/ClimateCrisisKR-2030.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ClimateCrisisKR';
+  src: url('./fonts/ClimateCrisisKR-2040.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ClimateCrisisKR';
+  src: url('./fonts/ClimateCrisisKR-2050.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+}
+
+*, *:after, *:before {
+  box-sizing: inherit;
+}
+
+
+html, body {
+  height: 100%;
+}
+
+
+body {
+  margin: 0;
+}
+
+
+body.modal-open {
+  overflow: hidden; /* 스크롤 잠금 */
+}
+
+
+
+/*-----------------------------------------------*/
+
+
+
+
+header.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0);
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9em 1.8em ;/* 메뉴바 상하 간격 , 오른쪽 패딩 값 */
+  z-index: 1000;
+}
+
+
+
+
+header .navbar a:hover { color: rgb(72, 255, 0); }
+
+
+header .logo {
+  font-family: 'ClimateCrisisKR', sans-serif; /* 폰트 이름 */
+  font-size: 1.2rem;
+  font-weight:400;
+}
+
+
+header .nav-links {
+  display: flex;
+  gap: 1em;
+  padding: 0.5em 3.9em; /* 메뉴바 상하 간격 , 왼쪽 패딩 값 */
+}
+
+
+header .nav-links a {
+  font-family:"Roboto", sans-serif;
+  font-weight: 500;
+  color: white;
+  text-decoration: none; /* 밑줄 제거 */
+  font-size: 1rem;
+  transition: color 0.3s;
+  white-space: nowrap; /* 텍스트가 잘리지 않고 한 줄로 유지되도록 */
+}
+
+
+header .nav-links a:hover { color: rgb(72, 255, 0); }
+
+
+header .hamburger {
+  display: none; /* 기본적으로 숨김 */
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em 4.5em ;
+}
+
+
+header .hamburger .line {
+  width: 30px;
+  height: 2.5px;
+  background-color: rgb(64, 255, 0);
+  margin: 1.4px ;
+  transition: transform 0.3s, background-color 0.3s; /* 애니메이션 */
+
+}
+
+
+@media screen and (max-width: 768px) {
+  header .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #b2b2b22b;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 250px;
+    padding: 3em ;
+  }
+
+
+  header .nav-links.active {
+    display: flex; /* 햄버거 버튼 클릭 시 활성화 */
+  }
+
+
+  header .hamburger {
+    display: flex; /* 작은 화면에서만 표시 */
+  }
+}
+
+
+  /* 햄버거 버튼 활성화 애니메이션 + 꼭 있어야 함  */
+  header .hamburger.active .line:nth-child(1) {
+    transform: rotate(45deg) translateY(8px);
+  }
+
+  header .hamburger.active .line:nth-child(2) {
+    opacity: 0;
+  }
+
+  header .hamburger.active .line:nth-child(3) {
+    transform: rotate(-45deg) translateY(-8px);
+  }
+
+
+
+/*-----------------------------------------------*/
+
+
+
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  height: 110vh;
+}
+
+
+.container {
+  background-color: #000000;
+  position: relative; /* 자식 요소를 절대 위치로 배치하기 위한 기준 */
+  width: 100%; /* 컨테이너 크기 */
+  height: 100%; /* 컨테이너 높이 */
+  display: flex; /* 플렉스 레이아웃 활성화 */
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  overflow: hidden; /* 컨테이너 밖으로 넘어가는 내용 숨김 */
+}
+
+
+.background {
+  position: relative; /* 컨테이너를 기준으로 배치 */
+  width: 100%; /* 컨테이너 너비의 80% */
+  height: auto; /* 비율을 유지하며 높이를 자동 조정 */
+  z-index: 1; /* 다른 요소보다 뒤로 배치 */
+  object-fit: contain; /* 비율을 유지하면서 컨테이너 안에 맞춤 */
+}
+
+
+#A {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 2;
+  background-color: black;
+}
+
+
+
+
+.background-image00 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: auto;
+  mix-blend-mode:hard-light;
+  z-index: 0;
+  opacity: 0.4; /* 투명도 조정 */
+  pointer-events: none; /* 클릭 방지 */
+}
+
+
+
+
+.centered-text {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* 수직 가운데 정렬, 필요 없다면 제거 */
+  height: 100px; /* 높이 조정 가능 */
+  position: absolute;
+  bottom: 80px; /* 바닥에서 20px 위로 올림 */
+  left: 50%;
+  transform: translateX(-50%); /* X축 기준 중앙 정렬 */
+  text-align: center;
+  z-index: 3;
+}
+
+
+#A h1 {
+  font-size: 1.4rem;
+  color: rgb(72, 255, 0);
+  margin: 0;
+  white-space: nowrap;
+  text-shadow: 
+  -1px -1px 0 rgb(0, 0, 0),  /* 왼쪽 위 */
+  1px -1px 0 black,  /* 오른쪽 위 */
+ -1px  1px 0 black,  /* 왼쪽 아래 */
+  1px  1px 0 black;  /* 오른쪽 아래 */
+  animation: blink 1.0s infinite; /* 깜박임 애니메이션 */
+}
+
+
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1; /* 텍스트가 보이는 상태 */
+    text-shadow: 0 0 10px black, 0 0 20px black, 0 0 30px black; /* 밝은 그림자 */
+
+  }
+  50% {
+    opacity: 0.6; /* 텍스트가 사라지는 상태 */
+    text-shadow: 0 0 5px black, 0 0 10px black, 0 0 15px black; /* 약한 그림자 */
+
+  }
+}
+
+
+
+.sticker {
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  position: absolute;
+  width: 40vw;
+  height: auto;
+  cursor: grab;
+  z-index: 3;
+}
+
+#sticker1 {
+  top: 20vh;
+  left: 40vw;
+}
+
+#sticker2 {
+  bottom: 15vh;
+  left: 25vw;
+}
+
+#startButton {
+  position: absolute;
+  bottom: 50vh;
+  left: 50vw;
+  transform: translateX(-50%);
+  width: 8vw;
+  height: auto;
+  cursor: pointer;
+  z-index: 2;
+}
+
+
+
+/* 추가된 브레이크포인트와 조정 */
+@media (max-width: 1400px) {
+  .sticker {
+    width: 40vw;
+  }
+
+  #sticker1 {
+    top: 25vh;
+    left: 38vw;
+  }
+
+  #sticker2 {
+    bottom: 25vh;
+    left: 22vw;
+  }
+
+  #startButton {
+    width: 9vw;
+  }
+}
+
+
+@media (max-width: 1280px) {
+  .sticker {
+    width: 40vw;
+  }
+
+  #sticker1 {
+    top: 20vh;
+    left: 38vw;
+  }
+
+  #sticker2 {
+    bottom: 25vh;
+    left: 22vw;
+  }
+
+  #startButton {
+    width: 10vw;
+  }
+}
+
+
+@media (max-width: 1024px) {
+  .sticker {
+    width: 37vw;
+  }
+
+  #sticker1 {
+    top: 25vh;
+    left: 36vw;
+  }
+
+  #sticker2 {
+    bottom: 33vh;
+    left: 20vw;
+  }
+  #startButton {
+    width: 10vw;
+  }
+}
+
+
+@media (max-width: 900px) {
+  .sticker {
+    width: 50vw;
+  }
+
+  #sticker1 {
+    top: 28vh;
+    left: 38vw;
+  }
+
+  #sticker2 {
+    bottom: 30vh;
+    left: 18vw;
+  }
+
+  #startButton {
+    width: 12vw;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .sticker {
+    width: 55vw;
+  }
+
+  #sticker1 {
+    top: 30vh;
+    left: 35vw;
+  }
+
+  #sticker2 {
+    bottom: 35vh;
+    left: 15vw;
+  }
+
+  #startButton {
+    width: 14vw;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .sticker {
+    width: 55vw;
+  }
+
+  #sticker1 {
+    top: 35vh;
+    left: 30vw;
+  }
+
+  #sticker2 {
+    bottom: 38vh;
+    left: 12vw;
+  }
+
+  #startButton {
+    width: 16vw;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .sticker {
+    width: 50vw;
+  }
+
+  #sticker1 {
+    top: 38vh;
+    left: 20vw;
+  }
+
+  #sticker2 {
+    bottom: 40vh;
+    left: 15vw;
+  }
+
+  #startButton {
+    width: 18vw;
+  }
+}
+
+
+
+
+/*--------------------------------------------------------------------------------------*/
+
+
+
+
+#B, #C {
+  position: relative;
+  height: 100vh;
+  background-color: black;
+  overflow: hidden;
+}
+
+
+.color-dodge-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: auto;
+  mix-blend-mode: hard-light;
+  z-index: 1;
+  opacity: 0.3;
+}
+
+
+#B .static-image {
+  position: absolute; /* 섹션 B 내부에 고정 */
+  top: 35%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); /* 중심 기준으로 정렬 */
+  width: 60%; /* 이미지 크기 설정 (화면 너비의 80%) */
+  height: auto; /* 비율 유지 */
+  z-index: 1; /* 텍스트 뒤에 배치 */
+  object-fit: contain; /* 이미지 비율 유지하며 크기 조정 */
+  opacity: 1;
+}
+
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  gap: 30px;
+  padding: 0px;
+  text-align: left;
+  max-width: 100%; /* 부모 섹션의 80%로 제한 */
+  z-index: 5;
+}
+
+
+/*--------------------------------------------------------------------------------------*/
+
+
+.text-container {
+  position: absolute; /* 부모(#D)를 기준으로 위치 설정 */
+  top: 10%; /* 섹션의 위쪽에서 15% 지점 */
+  left: 10%; /* 섹션의 왼쪽에서 10% 지점 */
+  width: 60%; 
+  display: flex; /* 플렉스 컨테이너 */
+  flex-direction: column; /* 세로 방향 정렬 */
+  gap: 50px; /* h1 사이 간격 */
+  z-index: 2;
+}
+
+
+#C h1 {
+  font-family: 'ClimateCrisisKR', sans-serif; /* 폰트 이름 */
+  font-weight: 800; /* 굵기 설정 */
+  font-size: 3rem;
+  color: #F2F2F2;
+  margin-bottom: 5px; /* h1 아래 간격 설정 */
+  z-index: 5;
+}
+
+
+#C h2 {
+  font-family:"Roboto", sans-serif;
+  font-weight: 400; /* 굵기 설정 */
+  font-size: 0.8rem; /* h2 텍스트 크기 */
+  color:  #F2F2F2;
+  margin: 0; /* 기본 여백 제거 */
+  line-height: 1.5; /* 행간 설정 */
+  z-index: 5;
+}
+
+
+#C .static-image02 {
+  position: absolute; /* 부모(#C)를 기준으로 위치 설정 */
+  top: 88%; /* 섹션의 중앙에서 더 아래쪽으로 배치 */
+  left: 50%; /* 가로 중앙 */
+  transform: translate(-50%, -50%) scaleY(0.5) ; /* 중심을 기준으로 위치 정렬 */
+  width: 100vw; /* 이미지 크기 (부모 섹션 너비의 40%) */
+  height: auto; /* 비율 유지 */
+  z-index: 3; 
+  overflow: visible; 
+}
+
+
+#C .static-image03 {
+  position: absolute; /* 부모(#C)를 기준으로 위치 설정 */
+  top: 60%; /* 섹션의 중앙에서 더 아래쪽으로 배치 */
+  left: 75%; /* 가로 중앙 */
+  transform: translate(-50%, -50%) scaleY(0.95); /* 중심을 기준으로 위치 정렬 */
+  width: 40vw; /* 이미지 크기 (부모 섹션 너비의 40%) */
+  height: auto; /* 비율 유지 */
+  z-index: 1; /* 텍스트 뒤에 배치 */
+  overflow: visible; 
+}
+
+
+
+/* 반응형 디자인 적용 */
+@media screen and (max-width: 1024px) {
+  #C h1 {
+    font-size: 2.8rem;
+  }
+
+  #C h2 {
+    font-size: 0.7rem; /* 모바일 화면에서 본문 텍스트 크기 축소 */
+  }
+
+  #C .static-image02 {
+    top: 90%; /* 모바일 화면에서 이미지 위치 조정 */
+    width: 100%; /* 이미지 너비를 화면에 맞춤 */
+  }
+
+  #C .static-image03 {
+    top: 65%; /* 모바일 화면에서 이미지 위치 조정 */
+    left: 80%; /* 이미지 위치 중앙 정렬 */
+    width: 40vw; /* 이미지 크기 조정 */
+
+  }
+}
+
+
+@media screen and (max-width: 900px) {
+  .text-container {
+    gap: 5px; /* 아이패드 크기에서 간격 줄이기 */
+  }
+
+  #C h1 {
+    font-size: 2.5rem; /* 더 작은 화면에서 텍스트 크기 조정 */
+  }
+
+  #C h2 {
+    font-size: 0.7rem; /* 더 작은 화면에서 본문 텍스트 크기 조정 */
+  }
+
+  #C .static-image02 {
+    top: 90%;
+    width: 100vw; /* 이미지 너비 조정 */
+  }
+
+  #C .static-image03 {
+    top: 65%;
+    left: 80%; /* 이미지 위치 중앙으로 조정 */
+    width: 50vw; /* 이미지 크기 확대 */
+  }
+}
+
+
+@media screen and (max-width: 750px) {
+  .text-container {
+    gap: 5px; /* 아이패드 크기에서 간격 줄이기 */
+  }
+
+  #C h1 {
+    font-size: 1.5rem; /* 더 작은 화면에서 텍스트 크기 조정 */
+  }
+
+  #C h2 {
+    font-size: 0.7rem; /* 더 작은 화면에서 본문 텍스트 크기 조정 */
+  }
+
+  #C .static-image02 {
+    top: 90%;
+    width: 220vw; /* 이미지 너비 조정 */
+  }
+
+  #C .static-image03 {
+    top: 65%;
+    left: 80%; /* 이미지 위치 중앙으로 조정 */
+    width: 60vw; /* 이미지 크기 확대 */
+  }
+}
+
+
+
+
+/*--------------------------------------------------------------------------------------*/
+
+
+
+
+#D, #E {
+  position: relative;
+  height: 100%; /* 섹션 높이 */
+  overflow: hidden; /* 섹션 밖으로 나가는 콘텐츠 숨김 */
+  z-index: 1; /* 섹션 A보다 뒤로 배치 */
+  background-color: #000000;
+}
+
+
+.background-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: auto;
+  mix-blend-mode: lighten;
+  z-index: 0;
+  opacity: 0.35;
+}
+
+
+#D {
+  position: relative;
+  height: 100vh; 
+  overflow: hidden; 
+  z-index: 1;
+}
+
+
+.text-container1 {
+  position: absolute; /* 부모(#D)를 기준으로 위치 설정 */
+  top: 15%; /* 섹션의 위쪽에서 15% 지점 */
+  left: 10%; /* 섹션의 왼쪽에서 10% 지점 */
+  width: 60%; 
+  display: flex; /* 플렉스 컨테이너 */
+  flex-direction: column; /* 세로 방향 정렬 */
+  gap: 50px; /* h1 사이 간격 */
+  z-index: 2;
+}
+
+
+#D h1 {
+  font-family: 'ClimateCrisisKR', sans-serif; /* 폰트 이름 */
+  font-size: 3rem;
+  font-weight: 700; /* 굵기 설정 */
+  color: #F2F2F2;
+  margin: 0;
+  white-space: normal; /* 줄바꿈 허용 */
+  word-wrap: break-word; /* 긴 단어 줄바꿈 */
+}
+
+
+.text-container2 {
+  
+  position: absolute; /* 부모(#D)를 기준으로 위치 설정 */
+  top: 30%; /* 섹션의 위쪽에서 35% 지점 (기존 40%에서 감소) */
+  transform: translateX(80%); /* 중앙 정렬 */
+  margin: 0;
+  z-index: 2;
+  text-align: right;
+}
+
+
+#D h2 {
+  font-family:"Roboto", sans-serif;
+  font-weight: 400; /* 굵기 설정 */
+  font-size: 0.8rem; /* h2 텍스트 크기 */
+  color:  #F2F2F2;
+  margin: 0; /* 기본 여백 제거 */
+  line-height: 1.5; /* 행간 설정 */
+}
+
+
+.static-image04 {
+  position: absolute; 
+  top: 40%; 
+  right: 0; 
+  transform: translateX(-150%) translateY(-50%) scaleY(0.95); 
+  width: auto; 
+  height: auto; 
+  z-index: 1; 
+  overflow: visible; 
+}
+
+
+.graph-container {
+  position: relative;
+  z-index: 10;
+}
+
+
+.graph-image {
+  margin: 0 auto 20px auto;
+  width: auto;
+  height: auto;
+  max-width: 450px;
+  max-height: 450px;
+  opacity: 0; 
+  transition: opacity 2s ease-in-out; 
+}
+
+
+.magnifier {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid rgb(72, 255, 0);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  display: none; 
+  background-repeat: no-repeat;
+  background-size: 800%; 
+  cursor: none;
+}
+
+
+.graph-image.faded-in {
+  opacity: 1; 
+}
+
+
+
+/* 반응형 디자인 */
+@media screen and (max-width: 1350px) {
+  .text-container1 {
+    width: 70%; /* 텍스트 컨테이너 너비 확대 */
+    top: 20%; /* 텍스트 위치 조정 */
+    left: 5%; /* 왼쪽 간격 줄이기 */
+    gap: 30px; /* 간격 줄이기 */
+  }
+  .Graph-image {
+    max-width: 400px; /* 화면이 작아질수록 이미지 크기 조정 */
+    max-height: 400px;
+  }
+
+  #D h1 {
+    font-size: 2.8rem; /* 텍스트 크기 줄이기 */
+  }
+
+  #D h2 {
+  font-size: 0.7rem; /* 모바일 화면에서 본문 텍스트 크기 축소 */}
+
+  .text-container2 {
+    top: 45%; /* 텍스트 위치 아래로 이동 */
+    font-size: 0.8rem; /* 텍스트 크기 줄이기 */
+    transform: translateX(60%); /* 중앙 정렬 */
+
+    text-align:right;  }
+
+  .static-image04 {
+      top: 47%; /* 이미지 위치 조정 */
+      right: 0%;
+      transform: translateX(-100%) translateY(-50%) scaleY(1); /* 크기 조정 */
+      width: 100%; /* 이미지 크기 확대 */
+  }
+}
+
+
+/* 반응형 디자인 */
+@media screen and (max-width: 1100px) {
+  .Graph-image {
+    max-width: 350px; /* 화면이 작아질수록 이미지 크기 조정 */
+    max-height: 350px;
+  }
+  .text-container1 {
+    width: 70%; /* 텍스트 컨테이너 너비 확대 */
+    top: 20%; /* 텍스트 위치 조정 */
+    left: 5%; /* 왼쪽 간격 줄이기 */
+    gap: 30px; /* 간격 줄이기 */
+  }
+
+  #D h1 {
+    font-size: 2.8rem; /* 텍스트 크기 줄이기 */
+  }
+
+  #D h2 {
+    font-size: 0.7rem; /* 모바일 화면에서 본문 텍스트 크기 축소 */}
+
+  .text-container2 {
+    top: 45%; /* 텍스트 위치 아래로 이동 */
+    transform: translateX(60%); /* 중앙 정렬 */
+    text-align:right;  }
+
+  .static-image04 {
+      top: 47%; /* 이미지 위치 조정 */
+      right: 0%;
+      transform: translateX(-100%) translateY(-50%) scaleY(1); /* 크기 조정 */
+      width: 100%; /* 이미지 크기 확대 */
+  }
+}
+
+
+/* 반응형 디자인 */
+@media screen and (max-width: 950px) {
+  .Graph-image {
+    max-width: 230px; /* 화면이 작아질수록 이미지 크기 조정 */
+    max-height: 230px;
+  }
+  .text-container1 {
+    width: 70%; /* 텍스트 컨테이너 너비 확대 */
+    top: 20%; /* 텍스트 위치 조정 */
+    left: 5%; /* 왼쪽 간격 줄이기 */
+    gap: 30px; /* 간격 줄이기 */
+  }
+
+  #D h1 {
+    font-size: 2.8rem; /* 텍스트 크기 줄이기 */
+  }
+
+  #D h2 {
+    font-size: 0.7rem;/* 모바일 화면에서 본문 텍스트 크기 축소 */}
+
+  .text-container2 {
+    top: 45%; /* 텍스트 위치 아래로 이동 */
+    transform: translateX(30%); /* 중앙 정렬 */
+    text-align:right;  }
+
+  .static-image04 {
+      top: 47%; /* 이미지 위치 조정 */
+      right: 0%;
+      transform: translateX(-100%) translateY(-50%) scaleY(1); /* 크기 조정 */
+      width: 150%; /* 이미지 크기 확대 */
+  }
+}
+
+
+@media screen and (max-width: 750px) {
+  .Graph-image {
+    max-width: 230px; /* 화면이 작아질수록 이미지 크기 조정 */
+    max-height: 230px;
+  }
+  .text-container1 {
+    width: 80%; /* 텍스트 컨테이너 너비 확대 */
+    top: 25%; /* 텍스트 위치 조정 */
+    left: 5%; /* 왼쪽 간격 줄이기 */
+    gap: 20px; /* 간격 줄이기 */
+  }
+
+  #D h1 {
+    font-size: 2.0rem; /* 텍스트 크기 줄이기 */
+  }
+
+  #D h2 {
+    font-size: 0.7rem;/* 모바일 화면에서 본문 텍스트 크기 축소 */}
+  
+
+  .text-container2 {
+    top: 45%; /* 텍스트 위치 아래로 이동 */
+    transform: translateX(10%); /* 중앙 정렬 */
+    text-align:right;  }
+
+  .static-image04 {
+    top: 50%; /* 이미지 위치 조정 */
+    left: -70%;
+    right: 0%;
+    transform: translateX(-10%) translateY(-50%) scaleY(1); /* 크기 조정 */
+    width: 180%; /* 이미지 크기 확대 */
+  }
+}
+
+
+
+/*--------------------------------------------------------------------------------------*/
+
+
+
+
+#E {
+  padding: 0;
+  margin: 0;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap; /* 작은 화면에서 행을 자동으로 넘김 */
+  justify-content: space-between; /* 텍스트와 이미지를 양 끝에 배치 */
+  align-items: center; /* 세로 중앙 정렬 */
+  height: 100vh; /* 섹션 전체 높이 */
+  padding: 0 5%; /* 양쪽 여백 */}
+
+
+.text-container3 {
+  position: absolute; 
+  top: 15%; 
+  left: 10%; 
+  width: 60%; 
+  display: flex; /* 플렉스 컨테이너 */
+  flex-direction: column; /* 세로 방향 정렬 */
+  gap: 50px; /* h1 사이 간격 */
+  z-index: 2;
+}
+
+
+#E h1 {
+  font-family: 'ClimateCrisisKR', sans-serif; /* 폰트 이름 */
+  font-size: 3rem;
+  font-weight: 600; /* 굵기 설정 */
+  color: #F2F2F2;
+  margin: 0;
+  white-space: normal; /* 줄바꿈 허용 */
+  word-wrap: break-word; /* 긴 단어 줄바꿈 */
+  margin-bottom: 15px; /* h1 아래 간격 추가 */
+}
+
+
+#E h2 {
+  font-family:"Roboto", sans-serif;
+  font-weight: 400; /* 굵기 설정 */
+  font-size: 1rem; /* h2 텍스트 크기 */
+  color:  #F2F2F2;
+  margin: 0; /* 기본 여백 제거 */
+  line-height: 1.5; /* 행간 설정 */
+}
+
+
+.image-container2 {
+  flex: 1 1 60%; /* 기본적으로 45% 공간을 차지, 줄어들거나 늘어날 수 있음 */
+  max-width: 80%; /* 최대 50% 너비 */
+  display: flex;
+  justify-content: flex-end; /* 이미지 오른쪽 정렬 */
+}
+
+
+.static-image05 {
+  width: 55%; /* 부모 섹션 너비의 60% */
+  height: auto; /* 비율 유지 */
+  position: absolute;
+  top: 45%; /* 세로 중앙 정렬 */
+  right: -5%; /* 부모의 오른쪽 끝에 붙이기 */
+  transform: translateX(150%) translateY(-50%); /* 초기 위치: 화면 밖 */
+  z-index: 1; /* 다른 요소보다 위에 표시 */
+  opacity: 0.7;
+  transition: transform 1.5s ease-in-out; /* 애니메이션 추가 */
+}
+
+
+.static-image06 {
+  width: 100%;
+  height: auto; /* 비율 유지 */
+  position: absolute;
+  bottom: -8%; /* 부모 섹션의 바닥에 붙임 */
+  left: 50%; /* 가로 방향의 화면 중앙으로 이동 */
+  transform: translateX(-50%); /* 자신의 크기의 절반만큼 왼쪽으로 이동 */
+  z-index: 1; /* 다른 요소보다 위에 표시 */
+  opacity: 1; /* 투명도 */
+}
+
+
+/* 반응형 디자인 */
+@media screen and (max-width: 1100px) {
+.text-container3 {
+  width: 80%; /* 텍스트 컨테이너 너비 확대 */
+  top: 25%; /* 텍스트 위치 조정 */
+  left: 5%; /* 왼쪽 간격 줄이기 */
+  gap: 20px; /* 간격 줄이기 */
+}
+
+#E h1 {
+  font-size: 2.8rem; /* 텍스트 크기 줄이기 */
+}
+#E h2 {
+font-size: 0.7rem; /* 모바일 화면에서 본문 텍스트 크기 축소 */}
+}
+
+
+
+@media (max-width: 768px) {
+  .text-container3 {
+    width: 80%; /* 텍스트 컨테이너 너비 확대 */
+    top: 25%; /* 텍스트 위치 조정 */
+    left: 5%; /* 왼쪽 간격 줄이기 */
+    gap: 20px; /* 간격 줄이기 */
+  }
+
+  #E h1 {
+    font-size: 2.0rem; /* 텍스트 크기 줄이기 */
+  }
+
+  #E h2 {
+    font-size: 0.7rem; /* 모바일 화면에서 본문 텍스트 크기 축소 */}
+  
+  
+  .animated-image {
+    max-width: 100%; /* 이미지 크기 축소 */
+  }
+}
+
+
+
+@media (max-width: 480px) {
+  .text-container3 {
+    width: 80%; /* 텍스트 컨테이너 너비 확대 */
+    top: 25%; /* 텍스트 위치 조정 */
+    left: 5%; /* 왼쪽 간격 줄이기 */
+    gap: 20px; /* 간격 줄이기 */
+  }
+
+  #E h1 {
+    font-size: 2.0rem; /* 텍스트 크기 줄이기 */
+  }
+
+  #E h2 {
+    font-size: 0.7rem; /* 모바일 화면에서 본문 텍스트 크기 축소 */}
+
+  .animated-image {
+    max-width: 100%; /* 이미지 크기 더 축소 */
+  }
+}
+
+
+
+
+/*--------------------------------------------------------------------------------------*/
+
+
+
+
+#F {
+  position: relative;
+  background-color: #000;
+  padding: 20px 0; /* 상단 및 하단 패딩 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  overflow: hidden; /* 넘치는 콘텐츠 숨김 */
+}
+
+/* 배경 이미지 고정 */
+.background-image2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: auto;
+  mix-blend-mode: luminosity;
+  z-index: 0;
+  opacity: 0.7; /* 투명도 조정 */
+  pointer-events: none; /* 클릭 방지 */
+}
+
+/* 고정된 이미지 */
+.static-image07 {
+  max-width: 40%; /* 이미지 크기 */
+  height: auto; /* 비율 유지 */
+  z-index: 1; /* 다른 요소 위에 표시 */
+  margin-top: -80px; /* 위로 올리기 */
+  margin-bottom: 20px; /* 이미지와 드롭다운 간의 간격 */
+  position: sticky; /* 스크롤 시 고정 */
+  top: 20px; /* 고정 위치 */
+}
+
+/* 드롭다운 컨테이너 */
+.dropdown-container {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+  margin-top: 0;
+  transition: height 0.3s ease; /* 높이 변화 애니메이션 */
+}
+
+/* 드롭다운 스타일 */
+.dropdown {
+  background-color: rgba(0, 0, 0, 0); /* 반투명 배경 */
+  color: #f2f2f2;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0);
+}
+
+.dropdown-header {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #2fff00;
+  padding: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  border-top: 1px solid #f2f2f2;
+  border-bottom: 1px solid #f2f2f2;
+  height: 60px;
+}
+
+
+.dropdown-number {
+  background-color: #ffffff20; /* 배경색 -*/
+  filter: blur(400); /* 요소 자체에 블러 (필요시 조정) */
+  color: #2fff00; /* 텍스트 색 */
+  border: 2px solid #2fff00; /* 라인의 두께와 색상 */
+  width: 80px; /* 가로 길이 */
+  height: 40px; /* 세로 길이 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px; /* 모서리를 둥글게 */
+  font-size: 15px;
+  font-weight: bold;
+}
+
+
+
+.dropdown-number:hover {
+  background-color: #2fff00; /* 호버 시 배경색 */
+  color: #ffffff; /* 호버 시 텍스트 색 */
+  border-color: #ffffff; /* 호버 시 라인 색 */
+}
+
+
+
+
+/* 드롭다운 열릴 때 콘텐츠 높이 조정 */
+.dropdown-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  background-color: #ffffff20; /* 배경색 */
+  padding: 0 20px;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.dropdown-container.open .dropdown-content {
+  max-height: 300px; /* 드롭다운 열릴 때 높이 설정 */
+  padding: 20px 20px; /* 패딩 추가 */
+}
+
+
+
+
+/*--------------------------------------------------------------------------------------*/
+
+
+
+
+#G {
+  position: relative; /* 자식 요소 기준 위치 */
+  background-color: black; /* 배경색 설정 */
+  padding: 0 0; /* 위아래 여백 */
+}
+
+
+.background-image3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: auto;
+  mix-blend-mode: luminosity;
+  z-index: 0;
+  opacity: 0.3; /* 투명도 조정 */
+  overflow: hidden; /* 넘치는 콘텐츠 숨김 */
+}
+
+
+
+#G h1 {
+  font-family: 'ClimateCrisisKR', sans-serif; /* 폰트 이름 */
+  font-size: 3rem;
+  font-weight: 500; /* 굵기 설정 */
+  position: absolute; /* 부모 요소를 기준으로 배치 */
+  top: 100px; /* 화면 위쪽에 붙이거나 원하는 위치를 조정 */
+  right: 100px; /* 화면 오른쪽에서 30px 떨어진 위치 */
+  font-size: 3rem;
+  color: #F2F2F2;
+  margin: 0;
+  white-space: nowrap;
+}
+
+
+/* 부모 요소 설정 */
+.static-image08 {
+  position: relative; /* 자식 요소의 기준을 설정 */
+  bottom: 0; /* 부모 요소의 하단에 고정 */
+  left: 2%; /* 부모 요소의 수평 중앙 */
+  transform: translateX(-50%); /* 수평 중앙 정렬 */
+  width: 45%; /* 이미지 너비를 부모 너비에 맞춤 */
+  height: auto; /* 비율 유지 */
+}
+
+/* 인터랙티브 포인트 기본 설정 */
+.interactive-point {
+  position: absolute; /* 부모 요소를 기준으로 배치 */
+  overflow: hidden;
+  width: 3vw; /* 뷰포트 너비의 3% */
+  height: 3vw; /* 뷰포트 너비의 3% */
+  max-width: 50px; /* 최대 크기 제한 */
+  max-height: 50px; /* 최대 크기 제한 */
+  background-color: rgba(0, 255, 0, 0.8);
+  border: 2px solid white;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+/* 각 포인트의 위치 설정 (부모 요소 크기의 % 단위) */
+#point1 {
+  top: 36%; /* 부모 요소 높이의 40% 지점 */
+  left: 36%; /* 부모 요소 너비의 36% 지점 */
+}
+
+#point2 {
+  top: 51.5%; /* 부모 요소 높이의 55% 지점 */
+  left: 23%; /* 부모 요소 너비의 23% 지점 */
+}
+
+#point3 {
+  top: 57%; /* 부모 요소 높이의 60% 지점 */
+  left: 30%; /* 부모 요소 너비의 30% 지점 */
+}
+
+/* 호버 효과 */
+.interactive-point:hover {
+  transform: scale(1.2);
+}
+
+
+
+
+@media (max-width: 768px) {
+  .interactive-point {
+    width: 4vw; 
+    height: 4vw;
+  }
+
+  #point1 {
+    top: 42%;
+    left: 34%;
+  }
+
+  #point2 {
+    top: 57%;
+    left: 20%;
+  }
+
+  #point3 {
+    top: 62%;
+    left: 28%;
+  }
+}
+
+@media (max-width: 480px) {
+  .interactive-point {
+    width: 5vw; /* 뷰포트 너비의 5% */
+    height: 5vw; /* 뷰포트 너비의 5% */
+  }
+
+  #point1 {
+    top: 45%;
+    left: 32%;
+  }
+
+  #point2 {
+    top: 60%;
+    left: 18%;
+  }
+
+  #point3 {
+    top: 65%;
+    left: 26%;
+  }
+}
+
+
+
+
+.description-box {
+  position: fixed;
+  top: 60%; 
+  right: 8%; 
+  transform: translateY(-50%); 
+  width: 500px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 4px solid rgba(0, 255, 0, 0.8);
+  padding: 20px;
+  border-radius: 15px;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  backdrop-filter: blur(5px); /* 블러 강도 */
+  -webkit-backdrop-filter: blur(5px); /* 사파리 브라우저 지원 */
+}
+
+
+.description-title-bar {
+  position: absolute; /* 박스 위로 나가도록 설정 */
+  top: -30px; 
+  left: 25%; 
+  transform: translateX(-50%); 
+  background-color: rgba(0, 255, 0, 1); 
+  width: 180px;
+  height: 50px;
+  font-size: 14px;
+  font-weight: 800;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  color: rgb(15, 15, 15);
+  border-radius: 50px; 
+  overflow: hidden; 
+}
+
+
+.description-box.visible {
+  opacity: 1; /* 보이도록 설정 */
+  visibility: visible; /* 가시성 설정 */
+}
+
+
+.description-box.hidden {
+  opacity: 0; /* 서서히 사라짐 */
+  visibility: hidden; /* 가시성 제거 */
+}
+
+
+.description-content {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 2;
+  color: rgb(15, 15, 15);
+  white-space: pre-wrap; /* 줄바꿈과 공백을 유지 */
+  margin-top: 8px; /* 타이틀 바와 약간의 간격 */
+  padding: 5px;
+}
+
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+
+@media (max-width: 768px) {
+  .description-box {
+      width: auto; /* 작은 화면에서 너비 자동 조정 */
+      max-width: 90%; /* 최대 너비 제한 */
+      font-size: 1rem; /* 텍스트 크기 유지 */
+      padding: 15px; /* 적절한 패딩 */
+  }
+
+
+  .interactive-point {
+      width: 40px; /* 크기 축소 */
+      height: 40px;
+  }
+}
+
+
+
+
+/*--------------------------------------------------------------------------------------*/
+
+
+
+
+#H {
+  position: relative;
+  height: 100vh;
+  background-color: black;
+  overflow: hidden;
+}
+
+
+#H h1 {
+  position: absolute;
+  font-family: 'ClimateCrisisKR', sans-serif; /* 폰트 이름 */
+  font-weight: 100; /* 굵기 설정 */
+  top: 40%; /* 부모 높이에 상대적인 위치 */
+  left: 50%; /* 부모 너비에 상대적인 위치 */
+  transform: translate(-50%, -50%); /* X축, Y축 중심으로 이동 */
+  font-size: 3vw; /* 반응형 크기 설정 (화면 너비 기준) */
+  color: #00FF00;
+  margin: 0;
+  white-space: nowrap;
+  text-align: center; /* 텍스트 수평 중앙 정렬 */
+}
+
+
+.static-image09 {
+  position: absolute;
+  top: 60%; /* 위아래 위치 고정 */
+  left: 50%; /* 기본 중앙 정렬 */
+  transform: translateX(-50%); /* 수평 중심 기준 */
+  width: 35%;
+  height: auto;
+  overflow: hidden;
+}
+
+
+.falling-image {
+  position: absolute;
+  top: -100px; /* 화면 위에서 시작 */
+  left: 0;
+  width: 50px; /* 떨어지는 이미지 크기 */
+  height: auto;
+}
+
+
+#H .score-box {
+  position: absolute;
+  top: 15%; 
+  right: 5%; 
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 10px 20px;
+  font-size: 17px;
+  font-weight: bold;
+  color: #00FF00;
+  border-radius: 50px;
+  border: 2px solid rgba(0, 255, 0, 0.8);
+}
+
+
+
+
+/*--------------------------------------------------------------------------------------*/
+
+
+
+
+.Quick-navigation {
+  position: fixed;
+  z-index: 1000; /* 다른 요소 위에 표시 */
+  margin: 0;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%); /* 정확히 중앙에 위치하도록 보정 */
+  flex-direction: column; /* 세로 정렬 */
+}
+
+
+body {
+  scroll-behavior: smooth; /* 네비게이션 클릭 시 부드럽게 스크롤 */
+}
+
+
+.Quick-navigation {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  z-index: 1000;
+}
+
+
+.Quick-navigation-item {
+  display: block;
+  margin: 10px 0;
+  text-decoration: none;
+  color: #9a9a9a;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+
+.Quick-navigation-item:hover {
+  color: rgb(72, 255, 0);
+}
