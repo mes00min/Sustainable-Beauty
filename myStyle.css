@@ -1666,7 +1666,7 @@ font-size: 0.7rem; /* 모바일 화면에서 본문 텍스트 크기 축소 */}
   top: 40%; /* 부모 높이에 상대적인 위치 */
   left: 50%; /* 부모 너비에 상대적인 위치 */
   transform: translate(-50%, -50%); /* X축, Y축 중심으로 이동 */
-  font-size: 5vw; /* 반응형 크기 설정 (화면 너비 기준) */
+  font-size: 4vw; /* 반응형 크기 설정 (화면 너비 기준) */
   color: #00FF00;
   margin: 0;
   white-space: nowrap;
