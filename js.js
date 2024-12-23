@@ -48,39 +48,44 @@ document.addEventListener("DOMContentLoaded", () => {
     startButton.style.opacity = 0.5;
     startButton.style.pointerEvents = "none";
 
-
-    // 스티커 이동 감지 및 부드러운 드래그
     stickers.forEach((sticker) => {
         let offsetX = 0, offsetY = 0;
         let isDragging = false;
-
-        sticker.addEventListener("mousedown", (event) => {
+    
+        const onDragStart = (event) => {
             event.preventDefault();
-            offsetX = event.clientX - sticker.offsetLeft;
-            offsetY = event.clientY - sticker.offsetTop;
+            const clientX = event.type === "mousedown" ? event.clientX : event.touches[0].clientX;
+            const clientY = event.type === "mousedown" ? event.clientY : event.touches[0].clientY;
+    
+            offsetX = clientX - sticker.offsetLeft;
+            offsetY = clientY - sticker.offsetTop;
             isDragging = true;
-
+    
             const onMouseMove = (event) => {
                 if (!isDragging) return;
-
+                const clientX = event.type === "mousemove" ? event.clientX : event.touches[0].clientX;
+                const clientY = event.type === "mousemove" ? event.clientY : event.touches[0].clientY;
+    
                 gsap.to(sticker, {
-                    left: `${event.clientX - offsetX}px`,
-                    top: `${event.clientY - offsetY}px`,
+                    left: `${clientX - offsetX}px`,
+                    top: `${clientY - offsetY}px`,
                     duration: 0.1,
                     ease: "power1.out",
                 });
             };
-
+    
             const onMouseUp = () => {
                 isDragging = false;
                 document.removeEventListener("mousemove", onMouseMove);
                 document.removeEventListener("mouseup", onMouseUp);
-
+                document.removeEventListener("touchmove", onMouseMove);
+                document.removeEventListener("touchend", onMouseUp);
+    
                 if (!sticker.dataset.moved) {
                     sticker.dataset.moved = true;
                     movedStickers++;
                 }
-
+    
                 if (movedStickers === totalStickers) {
                     gsap.to(startButton, {
                         opacity: 1,
@@ -91,13 +96,17 @@ document.addEventListener("DOMContentLoaded", () => {
                     });
                 }
             };
-
+    
             document.addEventListener("mousemove", onMouseMove);
             document.addEventListener("mouseup", onMouseUp);
-        });
+            document.addEventListener("touchmove", onMouseMove);
+            document.addEventListener("touchend", onMouseUp);
+        };
+    
+        sticker.addEventListener("mousedown", onDragStart);
+        sticker.addEventListener("touchstart", onDragStart);
     });
-
-
+    
     // 스타트 버튼 클릭 시 스크롤 잠금 해제
     startButton.addEventListener('click', () => {
         if (movedStickers === totalStickers) {
@@ -109,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
             alert('먼저 모든 쓰레기를 옮겨주세요!');
         }
     });
-
+    
 
     // 스크롤 잠금
     document.addEventListener('scroll', () => {
@@ -142,6 +151,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // 돋보기 효과
+
+    if (!/Mobi|Android/i.test(navigator.userAgent)) {
     container.addEventListener('mousemove', (event) => {
         const rect = container.getBoundingClientRect();
         const x = event.clientX - rect.left;
@@ -160,6 +171,11 @@ document.addEventListener("DOMContentLoaded", () => {
     container.addEventListener('mouseleave', () => {
         magnifier.style.display = "none"; // 돋보기 숨기기
     });
+
+
+} else {
+    console.log("모바일 환경에서 돋보기 기능이 비활성화되었습니다.");
+}
 
 
     // 트럭 이미지 애니메이션 (#D)
@@ -211,42 +227,69 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    // interactive-point hover 이벤트
-    interactivePoints.forEach((point) => {
-        point.addEventListener("mouseenter", () => {
-            const title = point.dataset.title || "Untitled";
-            const description = point.dataset.description || "No description available";
 
-            descriptionTitle.textContent = title;
-            descriptionContent.textContent = description.replace(/&#10;/g, '\n');
+        // interactive-point hover 이벤트
+        interactivePoints.forEach((point) => {
+            point.addEventListener("mouseenter", () => {
+                const title = point.dataset.title || "Untitled";
+                const description = point.dataset.description || "No description available";
 
-            descriptionBox.querySelector(".description-title").textContent = title;
-            descriptionBox.querySelector(".description-content").textContent = description;
+                descriptionTitle.textContent = title;
+                descriptionContent.textContent = description.replace(/&#10;/g, '\n');
 
-            descriptionBox.classList.remove("hidden");
-            descriptionBox.classList.add("visible");
-        });
+                descriptionBox.querySelector(".description-title").textContent = title;
+                descriptionBox.querySelector(".description-content").textContent = description;
 
-        point.addEventListener("mouseleave", () => {
-            descriptionBox.classList.remove("visible");
-            descriptionBox.classList.add("hidden");
-        });
-    });
-
-
-        // .static-image09 좌우 마우스 이동
-        if (staticImage09) {
-            document.addEventListener("mousemove", (event) => {
-                const section = document.getElementById("H");
-                const sectionWidth = section.offsetWidth;
-                const mouseX = event.clientX;
-    
-                const percentX = (mouseX / sectionWidth) * 100;
-    
-                staticImage09.style.left = `${percentX}%`;
+                descriptionBox.classList.remove("hidden");
+                descriptionBox.classList.add("visible");
             });
-        }
 
+            point.addEventListener("mouseleave", () => {
+                descriptionBox.classList.remove("visible");
+                descriptionBox.classList.add("hidden");
+            });
+
+            // 버튼 클릭 시 글 읽게 박스 보이게 하고 일정 시간 후 자동으로 사라지게 설정
+            point.addEventListener("click", () => {
+                // 박스 보이게 설정
+                descriptionBox.classList.remove("hidden");
+                descriptionBox.classList.add("visible");
+
+                // 일정 시간 후 박스 자동으로 사라지게 설정 (예: 5초 후)
+                setTimeout(() => {
+                    descriptionBox.classList.remove("visible");
+                    descriptionBox.classList.add("hidden");
+                }, 850); // 5000ms = 5초 후 사라짐
+            });
+        });
+
+
+
+
+
+        if (staticImage09) {
+            function updateImagePosition(event) {
+                const section = document.getElementById("H");
+                if (!section) return;
+        
+                const sectionRect = section.getBoundingClientRect();
+                const sectionWidth = sectionRect.width;
+        
+                // 마우스 또는 터치 위치 가져오기
+                const clientX = event.touches ? event.touches[0].clientX : event.clientX;
+        
+                const mouseX = clientX - sectionRect.left;
+                if (mouseX >= 0 && mouseX <= sectionWidth) {
+                    const percentX = (mouseX / sectionWidth) * 100;
+                    staticImage09.style.left = `${percentX}%`;
+                }
+            }
+        
+            // 마우스와 터치 이벤트 리스너 추가
+            document.addEventListener("mousemove", updateImagePosition);
+            document.addEventListener("touchmove", updateImagePosition);
+        }
+        
 
 
         
