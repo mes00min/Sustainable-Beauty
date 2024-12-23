@@ -239,22 +239,6 @@ section {
 
 
 
-.background-image00 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100vw;
-  height: auto;
-  mix-blend-mode:hard-light;
-  z-index: 0;
-  opacity: 0.4; /* 투명도 조정 */
-  pointer-events: none; /* 클릭 방지 */
-}
-
-
-
-
 .centered-text {
   display: flex;
   justify-content: center;
@@ -654,7 +638,7 @@ section {
   }
 
   #C h2 {
-    font-size: 0.7rem; /* 더 작은 화면에서 본문 텍스트 크기 조정 */
+    font-size: 0.6rem; /* 더 작은 화면에서 본문 텍스트 크기 조정 */
   }
 
   #C .static-image02 {
@@ -663,7 +647,7 @@ section {
   }
 
   #C .static-image03 {
-    top: 65%;
+    top: 80%;
     left: 80%; /* 이미지 위치 중앙으로 조정 */
     width: 60vw; /* 이미지 크기 확대 */
   }
@@ -673,6 +657,7 @@ section {
 
 
 /*--------------------------------------------------------------------------------------*/
+
 
 
 
@@ -709,7 +694,7 @@ section {
 
 .text-container1 {
   position: absolute; /* 부모(#D)를 기준으로 위치 설정 */
-  top: 15%; /* 섹션의 위쪽에서 15% 지점 */
+  top: 10%; /* 섹션의 위쪽에서 15% 지점 */
   left: 10%; /* 섹션의 왼쪽에서 10% 지점 */
   width: 60%; 
   display: flex; /* 플렉스 컨테이너 */
@@ -744,7 +729,7 @@ section {
 #D h2 {
   font-family:"Roboto", sans-serif;
   font-weight: 400; /* 굵기 설정 */
-  font-size: 0.8rem; /* h2 텍스트 크기 */
+  font-size: 0.9rem; /* h2 텍스트 크기 */
   color:  #F2F2F2;
   margin: 0; /* 기본 여백 제거 */
   line-height: 1.5; /* 행간 설정 */
@@ -756,7 +741,7 @@ section {
   top: 40%; 
   right: 0; 
   transform: translateX(-150%) translateY(-50%) scaleY(0.95); 
-  width: auto; 
+  width: 90%; 
   height: auto; 
   z-index: 1; 
   overflow: visible; 
@@ -765,13 +750,16 @@ section {
 
 .graph-container {
   position: relative;
-  z-index: 10;
+  width: 100%;
+  max-width: 450px; /* 부모 컨테이너 크기 제한 */
+  margin: 0 auto;
+  text-align: center;
 }
 
 
 .graph-image {
   margin: 0 auto 20px auto;
-  width: auto;
+  width: 100%;
   height: auto;
   max-width: 450px;
   max-height: 450px;
@@ -801,115 +789,98 @@ section {
 
 
 
-/* 반응형 디자인 */
-@media screen and (max-width: 1350px) {
-  .text-container1 {
-    width: 70%; /* 텍스트 컨테이너 너비 확대 */
-    top: 20%; /* 텍스트 위치 조정 */
-    left: 5%; /* 왼쪽 간격 줄이기 */
-    gap: 30px; /* 간격 줄이기 */
-  }
-  .Graph-image {
-    max-width: 400px; /* 화면이 작아질수록 이미지 크기 조정 */
-    max-height: 400px;
-  }
-
-  #D h1 {
-    font-size: 2.8rem; /* 텍스트 크기 줄이기 */
-  }
-
-  #D h2 {
-  font-size: 0.7rem; /* 모바일 화면에서 본문 텍스트 크기 축소 */}
-
-  .text-container2 {
-    top: 45%; /* 텍스트 위치 아래로 이동 */
-    font-size: 0.8rem; /* 텍스트 크기 줄이기 */
-    transform: translateX(60%); /* 중앙 정렬 */
-
-    text-align:right;  }
-
-  .static-image04 {
-      top: 47%; /* 이미지 위치 조정 */
-      right: 0%;
-      transform: translateX(-100%) translateY(-50%) scaleY(1); /* 크기 조정 */
-      width: 100%; /* 이미지 크기 확대 */
-  }
-}
 
 
 /* 반응형 디자인 */
-@media screen and (max-width: 1100px) {
-  .Graph-image {
+@media screen and (max-width: 1024px) {
+  .graph-image {
     max-width: 350px; /* 화면이 작아질수록 이미지 크기 조정 */
     max-height: 350px;
+    margin-left: 50px; /* 이미지를 우측으로 살짝 이동 */
+
   }
+
   .text-container1 {
-    width: 70%; /* 텍스트 컨테이너 너비 확대 */
+    width: 80%; /* 텍스트 컨테이너 너비 확대 */
     top: 20%; /* 텍스트 위치 조정 */
     left: 5%; /* 왼쪽 간격 줄이기 */
-    gap: 30px; /* 간격 줄이기 */
+    gap: 20px; /* 간격 줄이기 */
   }
 
   #D h1 {
-    font-size: 2.8rem; /* 텍스트 크기 줄이기 */
-  }
-
-  #D h2 {
-    font-size: 0.7rem; /* 모바일 화면에서 본문 텍스트 크기 축소 */}
-
-  .text-container2 {
-    top: 45%; /* 텍스트 위치 아래로 이동 */
-    transform: translateX(60%); /* 중앙 정렬 */
-    text-align:right;  }
-
-  .static-image04 {
-      top: 47%; /* 이미지 위치 조정 */
-      right: 0%;
-      transform: translateX(-100%) translateY(-50%) scaleY(1); /* 크기 조정 */
-      width: 100%; /* 이미지 크기 확대 */
-  }
-}
-
-
-/* 반응형 디자인 */
-@media screen and (max-width: 950px) {
-  .Graph-image {
-    max-width: 230px; /* 화면이 작아질수록 이미지 크기 조정 */
-    max-height: 230px;
-  }
-  .text-container1 {
-    width: 70%; /* 텍스트 컨테이너 너비 확대 */
-    top: 20%; /* 텍스트 위치 조정 */
-    left: 5%; /* 왼쪽 간격 줄이기 */
-    gap: 30px; /* 간격 줄이기 */
-  }
-
-  #D h1 {
-    font-size: 2.8rem; /* 텍스트 크기 줄이기 */
+    font-size: 1.9rem; /* 텍스트 크기 줄이기 */
   }
 
   #D h2 {
     font-size: 0.7rem;/* 모바일 화면에서 본문 텍스트 크기 축소 */}
+  
 
   .text-container2 {
-    top: 45%; /* 텍스트 위치 아래로 이동 */
-    transform: translateX(30%); /* 중앙 정렬 */
-    text-align:right;  }
+    top: 35%; /* 텍스트 위치 아래로 이동 */
+    right: 17%; /* 왼쪽 간격 줄이기 */
+    transform: translateX(10%); /* 중앙 정렬 */
+    text-align: right;
+  }
 
   .static-image04 {
-      top: 47%; /* 이미지 위치 조정 */
-      right: 0%;
-      transform: translateX(-100%) translateY(-50%) scaleY(1); /* 크기 조정 */
-      width: 150%; /* 이미지 크기 확대 */
+    top: 50%; /* 이미지 위치 조정 */
+    left: -10%;
+    right: 0%;
+    transform: translateX(-10%) translateY(-50%) scaleY(1); /* 크기 조정 */
+    width: 113%; /* 이미지 크기 확대 */
   }
 }
 
 
-@media screen and (max-width: 750px) {
-  .Graph-image {
-    max-width: 230px; /* 화면이 작아질수록 이미지 크기 조정 */
-    max-height: 230px;
+/* 반응형 디자인 */
+@media screen and (max-width: 768px) {
+  .graph-image {
+    max-width: 350px; /* 화면이 작아질수록 이미지 크기 조정 */
+    max-height: 350px;
+    margin-left: 50px; /* 이미지를 우측으로 살짝 이동 */
+
   }
+
+  .text-container1 {
+    width: 80%; /* 텍스트 컨테이너 너비 확대 */
+    top: 20%; /* 텍스트 위치 조정 */
+    left: 5%; /* 왼쪽 간격 줄이기 */
+    gap: 20px; /* 간격 줄이기 */
+  }
+
+  #D h1 {
+    font-size: 1.7rem; /* 텍스트 크기 줄이기 */
+  }
+
+  #D h2 {
+    font-size: 0.6rem;/* 모바일 화면에서 본문 텍스트 크기 축소 */}
+  
+
+  .text-container2 {
+    top: 35%; /* 텍스트 위치 아래로 이동 */
+    right: 17%; /* 왼쪽 간격 줄이기 */
+    transform: translateX(10%); /* 중앙 정렬 */
+    text-align: right;
+  }
+
+  .static-image04 {
+    top: 50%; /* 이미지 위치 조정 */
+    left: -10%;
+    right: 0%;
+    transform: translateX(-10%) translateY(-50%) scaleY(1); /* 크기 조정 */
+    width: 113%; /* 이미지 크기 확대 */
+  }
+}
+
+
+@media screen and (max-width: 425px) {
+  .graph-image {
+    max-width: 160px; /* 화면이 작아질수록 이미지 크기 조정 */
+    max-height: 160px;
+    margin-left: 50px; /* 이미지를 우측으로 살짝 이동 */
+
+  }
+
   .text-container1 {
     width: 80%; /* 텍스트 컨테이너 너비 확대 */
     top: 25%; /* 텍스트 위치 조정 */
@@ -918,29 +889,68 @@ section {
   }
 
   #D h1 {
-    font-size: 2.0rem; /* 텍스트 크기 줄이기 */
+    font-size: 1.5rem; /* 텍스트 크기 줄이기 */
   }
 
   #D h2 {
-    font-size: 0.7rem;/* 모바일 화면에서 본문 텍스트 크기 축소 */}
+    font-size: 0.5rem;/* 모바일 화면에서 본문 텍스트 크기 축소 */}
   
 
   .text-container2 {
     top: 45%; /* 텍스트 위치 아래로 이동 */
+    right: 17%; /* 왼쪽 간격 줄이기 */
     transform: translateX(10%); /* 중앙 정렬 */
-    text-align:right;  }
+    text-align: right;
+  }
 
   .static-image04 {
     top: 50%; /* 이미지 위치 조정 */
-    left: -70%;
+    left: -10%;
     right: 0%;
     transform: translateX(-10%) translateY(-50%) scaleY(1); /* 크기 조정 */
-    width: 180%; /* 이미지 크기 확대 */
+    width: 113%; /* 이미지 크기 확대 */
   }
 }
 
 
+@media screen and (max-width: 390px) {
+  .graph-image {
+    max-width: 150px; /* 화면이 작아질수록 이미지 크기 조정 */
+    max-height: 150px;
+    margin-left: 50px; /* 이미지를 우측으로 살짝 이동 */
 
+  }
+
+  .text-container1 {
+    width: 80%; /* 텍스트 컨테이너 너비 확대 */
+    top: 25%; /* 텍스트 위치 조정 */
+    left: 5%; /* 왼쪽 간격 줄이기 */
+    gap: 20px; /* 간격 줄이기 */
+  }
+
+  #D h1 {
+    font-size: 1.5rem; /* 텍스트 크기 줄이기 */
+  }
+
+  #D h2 {
+    font-size: 0.5rem;/* 모바일 화면에서 본문 텍스트 크기 축소 */}
+  
+
+  .text-container2 {
+    top: 45%; /* 텍스트 위치 아래로 이동 */
+    right: 17%; /* 왼쪽 간격 줄이기 */
+    transform: translateX(10%); /* 중앙 정렬 */
+    text-align: right;
+  }
+
+  .static-image04 {
+    top: 50%; /* 이미지 위치 조정 */
+    left: -10%;
+    right: 0%;
+    transform: translateX(-10%) translateY(-50%) scaleY(1); /* 크기 조정 */
+    width: 113%; /* 이미지 크기 확대 */
+  }
+}
 /*--------------------------------------------------------------------------------------*/
 
 
@@ -1026,7 +1036,7 @@ section {
 
 
 /* 반응형 디자인 */
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1024px) {
 .text-container3 {
   width: 80%; /* 텍스트 컨테이너 너비 확대 */
   top: 25%; /* 텍스트 위치 조정 */
@@ -1039,6 +1049,9 @@ section {
 }
 #E h2 {
 font-size: 0.7rem; /* 모바일 화면에서 본문 텍스트 크기 축소 */}
+.static-image06 {
+  bottom: -10%; /* 모바일에서는 상단으로 위치 조정 */
+}
 }
 
 
@@ -1062,11 +1075,14 @@ font-size: 0.7rem; /* 모바일 화면에서 본문 텍스트 크기 축소 */}
   .animated-image {
     max-width: 100%; /* 이미지 크기 축소 */
   }
+  .static-image06 {
+    bottom: 10%; /* 모바일에서는 상단으로 위치 조정 */
+  }
 }
 
 
 
-@media (max-width: 480px) {
+@media (max-width: 425px) {
   .text-container3 {
     width: 80%; /* 텍스트 컨테이너 너비 확대 */
     top: 25%; /* 텍스트 위치 조정 */
@@ -1075,16 +1091,45 @@ font-size: 0.7rem; /* 모바일 화면에서 본문 텍스트 크기 축소 */}
   }
 
   #E h1 {
-    font-size: 2.0rem; /* 텍스트 크기 줄이기 */
+    font-size: 1.6rem; /* 텍스트 크기 줄이기 */
   }
 
   #E h2 {
-    font-size: 0.7rem; /* 모바일 화면에서 본문 텍스트 크기 축소 */}
+    font-size: 0.5rem; /* 모바일 화면에서 본문 텍스트 크기 축소 */}
 
   .animated-image {
     max-width: 100%; /* 이미지 크기 더 축소 */
   }
+  .static-image06 {
+    bottom: 25%; /* 모바일에서는 상단으로 위치 조정 */
+  }
 }
+
+
+@media (max-width: 390px) {
+  .text-container3 {
+    width: 80%; /* 텍스트 컨테이너 너비 확대 */
+    top: 25%; /* 텍스트 위치 조정 */
+    left: 5%; /* 왼쪽 간격 줄이기 */
+    gap: 20px; /* 간격 줄이기 */
+  }
+
+  #E h1 {
+    font-size: 1.4rem; /* 텍스트 크기 줄이기 */
+  }
+
+  #E h2 {
+    font-size: 0.5rem; /* 모바일 화면에서 본문 텍스트 크기 축소 */}
+
+  .animated-image {
+    max-width: 150%; /* 이미지 크기 더 축소 */
+  }
+  .static-image06 {
+    bottom: 25%; /* 모바일에서는 상단으로 위치 조정 */
+  }
+
+}
+
 
 
 
@@ -1094,18 +1139,18 @@ font-size: 0.7rem; /* 모바일 화면에서 본문 텍스트 크기 축소 */}
 
 
 
+
 #F {
   position: relative;
   background-color: #000;
-  padding: 20px 0; /* 상단 및 하단 패딩 */
+  padding: 20px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
-  overflow: hidden; /* 넘치는 콘텐츠 숨김 */
+  overflow: hidden;
 }
 
-/* 배경 이미지 고정 */
 .background-image2 {
   position: absolute;
   top: 50%;
@@ -1115,22 +1160,20 @@ font-size: 0.7rem; /* 모바일 화면에서 본문 텍스트 크기 축소 */}
   height: auto;
   mix-blend-mode: luminosity;
   z-index: 0;
-  opacity: 0.7; /* 투명도 조정 */
-  pointer-events: none; /* 클릭 방지 */
+  opacity: 0.7;
+  pointer-events: none;
 }
 
-/* 고정된 이미지 */
 .static-image07 {
-  max-width: 40%; /* 이미지 크기 */
-  height: auto; /* 비율 유지 */
-  z-index: 1; /* 다른 요소 위에 표시 */
-  margin-top: -80px; /* 위로 올리기 */
-  margin-bottom: 20px; /* 이미지와 드롭다운 간의 간격 */
-  position: sticky; /* 스크롤 시 고정 */
-  top: 20px; /* 고정 위치 */
+  max-width: 40%;
+  height: auto;
+  z-index: 1;
+  margin-top: -80px;
+  margin-bottom: 20px;
+  position: sticky;
+  top: 20px;
 }
 
-/* 드롭다운 컨테이너 */
 .dropdown-container {
   width: 100%;
   max-width: 800px;
@@ -1139,12 +1182,11 @@ font-size: 0.7rem; /* 모바일 화면에서 본문 텍스트 크기 축소 */}
   gap: 10px;
   z-index: 1000;
   margin-top: 0;
-  transition: height 0.3s ease; /* 높이 변화 애니메이션 */
+  transition: height 0.3s ease;
 }
 
-/* 드롭다운 스타일 */
 .dropdown {
-  background-color: rgba(0, 0, 0, 0); /* 반투명 배경 */
+  background-color: rgba(0, 0, 0, 0);
   color: #f2f2f2;
   overflow: hidden;
   transition: all 0.3s ease;
@@ -1166,39 +1208,32 @@ font-size: 0.7rem; /* 모바일 화면에서 본문 텍스트 크기 축소 */}
   height: 60px;
 }
 
-
 .dropdown-number {
-  background-color: #ffffff20; /* 배경색 -*/
-  filter: blur(400); /* 요소 자체에 블러 (필요시 조정) */
-  color: #2fff00; /* 텍스트 색 */
-  border: 2px solid #2fff00; /* 라인의 두께와 색상 */
-  width: 80px; /* 가로 길이 */
-  height: 40px; /* 세로 길이 */
+  background-color: #ffffff20;
+  filter: blur(400);
+  color: #2fff00;
+  border: 2px solid #2fff00;
+  width: 80px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50px; /* 모서리를 둥글게 */
+  border-radius: 50px;
   font-size: 15px;
   font-weight: bold;
 }
 
-
-
 .dropdown-number:hover {
-  background-color: #2fff00; /* 호버 시 배경색 */
-  color: #ffffff; /* 호버 시 텍스트 색 */
-  border-color: #ffffff; /* 호버 시 라인 색 */
+  background-color: #2fff00;
+  color: #ffffff;
+  border-color: #ffffff;
 }
 
-
-
-
-/* 드롭다운 열릴 때 콘텐츠 높이 조정 */
 .dropdown-content {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-out;
-  background-color: #ffffff20; /* 배경색 */
+  background-color: #ffffff20;
   padding: 0 20px;
   color: #ffffff;
   font-size: 15px;
@@ -1206,9 +1241,117 @@ font-size: 0.7rem; /* 모바일 화면에서 본문 텍스트 크기 축소 */}
 }
 
 .dropdown-container.open .dropdown-content {
-  max-height: 300px; /* 드롭다운 열릴 때 높이 설정 */
-  padding: 20px 20px; /* 패딩 추가 */
+  max-height: 300px;
+  padding: 20px 20px;
 }
+
+/* 반응형 디자인 */
+@media (max-width: 1200px) {
+  .static-image07 {
+    max-width: 50%;
+  }
+
+  .dropdown-container {
+    max-width: 600px;
+  }
+
+  .dropdown-header {
+    font-size: 16px;
+  }
+
+  .dropdown-number {
+    width: 70px;
+    height: 35px;
+    font-size: 14px;
+  }
+
+}
+
+@media (max-width: 992px) {
+  #F {
+    padding: 15px 0;
+  }
+
+  .static-image07 {
+    max-width: 60%;
+    margin-top: -60px;
+  }
+
+  .dropdown-container {
+    max-width: 90%;
+  }
+
+  .dropdown-header {
+    font-size: 14px;
+    padding: 15px;
+  }
+
+  .dropdown-number {
+    width: 60px;
+    height: 30px;
+    font-size: 13px;
+  }
+  .dropdown-content{
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 768px) {
+  .background-image2 {
+    width: 100%;
+    height: auto;
+  }
+
+  .static-image07 {
+    max-width: 80%;
+    margin-top: -40px;
+  }
+
+  .dropdown-container {
+    max-width: 75%;
+  }
+
+  .dropdown-header {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .dropdown-number {
+    width: 50px;
+    height: 25px;
+    font-size: 12px;
+  }
+  .dropdown-content{
+    font-size: 9px;
+  }
+}
+
+
+@media (max-width: 390px) {
+  .dropdown-container {
+    gap: 5px;
+  }
+
+  .dropdown-header {
+    font-size: 9px;
+    padding: 10px;
+  }
+
+  .dropdown-number {
+    width: 45px;
+    height: 22px;
+    font-size:9px;
+  }
+  .dropdown-content{
+    font-size: 8.5px;
+  }
+  .dropdown-container {
+    max-width: 75%;
+  }
+}
+
+ 
+
 
 
 
@@ -1218,12 +1361,12 @@ font-size: 0.7rem; /* 모바일 화면에서 본문 텍스트 크기 축소 */}
 
 
 
+/* 공통 스타일 */
 #G {
   position: relative; /* 자식 요소 기준 위치 */
   background-color: black; /* 배경색 설정 */
-  padding: 0 0; /* 위아래 여백 */
+  padding: 0;
 }
-
 
 .background-image3 {
   position: absolute;
@@ -1234,44 +1377,37 @@ font-size: 0.7rem; /* 모바일 화면에서 본문 텍스트 크기 축소 */}
   height: auto;
   mix-blend-mode: luminosity;
   z-index: 0;
-  opacity: 0.3; /* 투명도 조정 */
-  overflow: hidden; /* 넘치는 콘텐츠 숨김 */
+  opacity: 0.3;
+  overflow: hidden;
 }
 
-
-
 #G h1 {
-  font-family: 'ClimateCrisisKR', sans-serif; /* 폰트 이름 */
+  font-family: 'ClimateCrisisKR', sans-serif;
   font-size: 3rem;
-  font-weight: 500; /* 굵기 설정 */
-  position: absolute; /* 부모 요소를 기준으로 배치 */
-  top: 100px; /* 화면 위쪽에 붙이거나 원하는 위치를 조정 */
-  right: 100px; /* 화면 오른쪽에서 30px 떨어진 위치 */
-  font-size: 3rem;
+  font-weight: 500;
+  position: absolute;
+  top: 15%;
+  right: 10%;
   color: #F2F2F2;
   margin: 0;
   white-space: nowrap;
 }
 
-
-/* 부모 요소 설정 */
 .static-image08 {
-  position: relative; /* 자식 요소의 기준을 설정 */
-  bottom: 0; /* 부모 요소의 하단에 고정 */
-  left: 2%; /* 부모 요소의 수평 중앙 */
-  transform: translateX(-50%); /* 수평 중앙 정렬 */
-  width: 45%; /* 이미지 너비를 부모 너비에 맞춤 */
-  height: auto; /* 비율 유지 */
+  position: relative;
+  bottom: -10%;
+  left: 2%;
+  transform: translateX(-50%);
+  width: 45%;
+  height: auto;
 }
 
-/* 인터랙티브 포인트 기본 설정 */
 .interactive-point {
-  position: absolute; /* 부모 요소를 기준으로 배치 */
-  overflow: hidden;
-  width: 3vw; /* 뷰포트 너비의 3% */
-  height: 3vw; /* 뷰포트 너비의 3% */
-  max-width: 50px; /* 최대 크기 제한 */
-  max-height: 50px; /* 최대 크기 제한 */
+  position: absolute;
+  width: 3vw;
+  height: 3vw;
+  max-width: 50px;
+  max-height: 50px;
   background-color: rgba(0, 255, 0, 0.8);
   border: 2px solid white;
   border-radius: 50%;
@@ -1280,168 +1416,237 @@ font-size: 0.7rem; /* 모바일 화면에서 본문 텍스트 크기 축소 */}
   transition: transform 0.3s ease;
 }
 
-/* 각 포인트의 위치 설정 (부모 요소 크기의 % 단위) */
-#point1 {
-  top: 36%; /* 부모 요소 높이의 40% 지점 */
-  left: 36%; /* 부모 요소 너비의 36% 지점 */
-}
-
-#point2 {
-  top: 51.5%; /* 부모 요소 높이의 55% 지점 */
-  left: 23%; /* 부모 요소 너비의 23% 지점 */
-}
-
-#point3 {
-  top: 57%; /* 부모 요소 높이의 60% 지점 */
-  left: 30%; /* 부모 요소 너비의 30% 지점 */
-}
-
-/* 호버 효과 */
 .interactive-point:hover {
   transform: scale(1.2);
 }
 
+#point1 { top: 43%; left: 35%; }
+#point2 { top: 58%; left: 24%; }
+#point3 { top: 64%; left: 28%; }
 
 
-
-@media (max-width: 768px) {
-  .interactive-point {
-    width: 4vw; 
-    height: 4vw;
-  }
-
-  #point1 {
-    top: 42%;
-    left: 34%;
-  }
-
-  #point2 {
-    top: 57%;
-    left: 20%;
-  }
-
-  #point3 {
-    top: 62%;
-    left: 28%;
-  }
-}
-
-@media (max-width: 480px) {
-  .interactive-point {
-    width: 5vw; /* 뷰포트 너비의 5% */
-    height: 5vw; /* 뷰포트 너비의 5% */
-  }
-
-  #point1 {
-    top: 45%;
-    left: 32%;
-  }
-
-  #point2 {
-    top: 60%;
-    left: 18%;
-  }
-
-  #point3 {
-    top: 65%;
-    left: 26%;
-  }
-}
 
 
 
 
 .description-box {
   position: fixed;
-  top: 60%; 
-  right: 8%; 
-  transform: translateY(-50%); 
+  top: 60%;
+  right: 8%;
+  transform: translateY(-50%);
   width: 500px;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.6);
   border: 4px solid rgba(0, 255, 0, 0.8);
   padding: 20px;
   border-radius: 15px;
   z-index: 1000;
   opacity: 0;
   transition: opacity 0.3s ease, transform 0.3s ease;
-  backdrop-filter: blur(5px); /* 블러 강도 */
-  -webkit-backdrop-filter: blur(5px); /* 사파리 브라우저 지원 */
-}
-
-
-.description-title-bar {
-  position: absolute; /* 박스 위로 나가도록 설정 */
-  top: -30px; 
-  left: 25%; 
-  transform: translateX(-50%); 
-  background-color: rgba(0, 255, 0, 1); 
-  width: 180px;
-  height: 50px;
-  font-size: 14px;
-  font-weight: 800;
-  display: flex; 
-  align-items: center; 
-  justify-content: center;
-  color: rgb(15, 15, 15);
-  border-radius: 50px; 
-  overflow: hidden; 
-}
-
-
-.description-box.visible {
-  opacity: 1; /* 보이도록 설정 */
-  visibility: visible; /* 가시성 설정 */
+  backdrop-filter: blur(5px);
 }
 
 
 .description-box.hidden {
-  opacity: 0; /* 서서히 사라짐 */
-  visibility: hidden; /* 가시성 제거 */
+  opacity: 0;
+  visibility: hidden;
 }
+
+.description-box.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+.description-title-bar {
+  position: absolute;
+  top: -30px;
+  left: 25%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 255, 0, 1);
+  width: 180px;
+  height: 50px;
+  font-size: 14px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(15, 15, 15);
+  border-radius: 50px;
+  overflow: hidden; 
+}
+
+
+
 
 
 .description-content {
   font-size: 14px;
   font-weight: 500;
-  line-height: 2;
+  line-height: 1.6;
   color: rgb(15, 15, 15);
-  white-space: pre-wrap; /* 줄바꿈과 공백을 유지 */
-  margin-top: 8px; /* 타이틀 바와 약간의 간격 */
-  padding: 5px;
+  white-space: pre-wrap;
 }
 
 
-.hidden {
-  opacity: 0;
-  pointer-events: none;
+
+
+
+/* 반응형 스타일 */
+@media (max-width: 1024px) {
+  #G h1 {
+    font-size: 2.5rem;
+    top: 30%;
+    left: 5%;
+  }
+
+  .interactive-point {
+    width: 6vw;
+    height: 6vw;
+  }
+
+
+  #point1 {
+    top: 53%;
+    left: 30%;
+  }
+
+  #point2 {
+    top: 58.5;
+    left: 23%;
+  }
+
+  #point3 {
+    top: 61%;
+    left: 28%;
+  }
+  
+
+  .description-box {
+    width: 40%;
+    right: 5%;
+    padding: 15px;
+  }
+
+  .description-title-bar {
+    width: 150px;
+    height: 40px;
+    font-size: 12px;
+  }
+
+  .description-content {
+    font-size: 12px;
+  }
 }
 
-.visible {
-  opacity: 1;
-  pointer-events: auto;
-}
+
 
 
 
 @media (max-width: 768px) {
-  .description-box {
-      width: auto; /* 작은 화면에서 너비 자동 조정 */
-      max-width: 90%; /* 최대 너비 제한 */
-      font-size: 1rem; /* 텍스트 크기 유지 */
-      padding: 15px; /* 적절한 패딩 */
+  #G h1 {
+    font-size: 2rem;
+    top: 25%;
+    left: 5%;
+  }
+
+  .interactive-point {
+    width: 8vw;
+    height: 8vw;
   }
 
 
+
+  #point1 {
+    top: 54%;
+    left: 30%;
+  }
+
+  #point2 {
+    top: 58.2%;
+    left: 20%;
+  }
+
+  #point3 {
+    top: 60%;
+    left: 28%;
+  }
+
+
+  .description-box {
+    width: 40%;
+    top: 50%;
+    padding: 15px;
+  }
+
+  .description-title-bar {
+    width: 120px;
+    height: 35px;
+    font-size: 10px;
+  }
+
+  .description-content {
+    font-size: 10px;
+    line-height: 1.4;
+  }
+}
+
+
+
+@media (max-width: 390px) {
+  #G h1 {
+    font-size: 1.5rem;
+    top: 100%;
+    left: 5%;
+  }
+
   .interactive-point {
-      width: 40px; /* 크기 축소 */
-      height: 40px;
+    width: 10vw;
+    height: 10vw;
+  }
+
+
+
+  #point1 {
+    top: 100%;
+    left: 22%;
+  }
+
+
+  #point2 {
+    top: 59%;
+    left: 24%;
+  }
+
+
+  #point3 {
+    top: 61%;
+    left: 29%;
+  }
+
+
+  .description-box {
+    width: 40%;
+    top: 50%;
+    padding: 15px;
+  }
+
+  .description-title-bar {
+    width: 100px;
+    height: 30px;
+    font-size: 9px;
+  }
+
+  .description-content {
+    font-size: 8px;
+    line-height: 1.3;
   }
 }
 
 
 
 
-/*--------------------------------------------------------------------------------------*/
+
+/*———————————————————————————————————————————*/
 
 
 
@@ -1461,7 +1666,7 @@ font-size: 0.7rem; /* 모바일 화면에서 본문 텍스트 크기 축소 */}
   top: 40%; /* 부모 높이에 상대적인 위치 */
   left: 50%; /* 부모 너비에 상대적인 위치 */
   transform: translate(-50%, -50%); /* X축, Y축 중심으로 이동 */
-  font-size: 3vw; /* 반응형 크기 설정 (화면 너비 기준) */
+  font-size: 5vw; /* 반응형 크기 설정 (화면 너비 기준) */
   color: #00FF00;
   margin: 0;
   white-space: nowrap;
